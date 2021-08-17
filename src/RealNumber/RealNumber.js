@@ -4,7 +4,7 @@ import './RealNumber.css';
 function RealNumber() {
 	const [isValidInput, setIsValidInput] = useState(false);
 	const checkIsValidInput = useCallback(e => {
-		setIsValidInput(e.target.value.match(/^[0-9]/));
+		setIsValidInput(e.target.value.match(/^\d+$/));
 	});
 
 	return (
