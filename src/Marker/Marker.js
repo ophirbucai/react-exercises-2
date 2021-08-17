@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './Marker.css';
+import Item from './Item/Item'
 
 function Marker() {
-
-	const [items, setItems] = useState([
+	const [searchTerm, setSearchTerm] = useState();
+	const [items] = useState([
 		"First item",
 		"Second special item",
 		"Third item",
 		"Fourth special item",
 	]);
+
 
 	return (
 		<div className="Marker">
@@ -19,9 +21,9 @@ function Marker() {
 				Apply the marker for <u>all items</u>.
 			</p>
 
-			<input type="text" placeholder="Text to marker..." />
+			<input type="text" onChange={e => setSearchTerm(e.target.value)} placeholder="Text to marker..." />
 			<ul>
-				{ /* The list should be here */ }
+				{items.map((item, i) => <Item key={i} searchTerm={searchTerm} item={item} />)}
 			</ul>
 		</div>
 	)

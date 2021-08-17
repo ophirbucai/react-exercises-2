@@ -16,3 +16,17 @@
 .Todo input, .Todo button {
   font-size: 16px;
 }
+
+.delete {
+    color: #cc0000;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.task {
+    background: whitesmoke;
+    line-height: 20px;
+    box-shadow: 0 0 5px 0 gainsboro;
+}

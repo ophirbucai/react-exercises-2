@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import './RealNumber.css';
 
 function RealNumber() {
+	const [isValidInput, setIsValidInput] = useState(false);
+	const checkIsValidInput = useCallback(e => {
+		setIsValidInput(e.target.value.match(/^[0-9]/));
+	});
+
 	return (
 		<div className="RealNumber">
 			<p>
@@ -10,9 +15,8 @@ function RealNumber() {
 				"238764" - <span className="value--valid">valid</span> <br />
 				"A13" - <span className="value--invalid">invalid</span>
 			</p>
-
-			<input type="text" className="text-box" />
-			<button>Submit</button>
+			<input type="text" className="text-box" onChange={checkIsValidInput} />
+			{isValidInput && <button>Submit</button>}
 		</div>
 	)
 }
