@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function Item({item, searchTerm}) {
     const [markedItem, setMarkedItem] = useState();
     useEffect(() => {
-        const matches = item.match(new RegExp(searchTerm, 'gi'));
+        const matches = item.match(new RegExp(searchTerm, 'i'));
         setMarkedItem(item.replaceAll(matches, "<mark>" + matches + "</mark>"));
     }, [searchTerm]);
 
